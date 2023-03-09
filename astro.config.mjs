@@ -3,6 +3,7 @@ import unocss from 'unocss/astro'
 import { presetUno } from 'unocss'
 import presetAttributify from '@unocss/preset-attributify'
 import presetTypography from '@unocss/preset-typography'
+import presetIcons from '@unocss/preset-icons'
 import solidJs from '@astrojs/solid-js'
 import vercelDisableBlocks from './plugins/vercelDisableBlocks'
 
@@ -26,7 +27,14 @@ export default defineConfig({
       presets: [
         presetAttributify(),
         presetUno(),
-        presetTypography(),
+        presetTypography({
+          cssExtend: {
+            "ul,ol": {
+              "padding-left": "2em"
+            }
+          }
+        }),
+        presetIcons(),
       ]
     }),
     solidJs()
